@@ -3,6 +3,7 @@ package ir.sls.aggregator.service
 import ir.sls.aggregator.config.Config
 import ir.sls.aggregator.dao.NormalizedUrlDao
 import ir.sls.aggregator.dao.OriginalUrlDao
+import ir.sls.aggregator.metric.InitMeter
 import ir.sls.aggregator.model.DataRecord
 import mu.KotlinLogging
 import java.sql.SQLException
@@ -60,6 +61,7 @@ private val logger = KotlinLogging.logger{}
             OriginalUrlDao.setConnection(con)
             OriginalUrlDao.persist(heap)
             con?.commit()
+            InitMeter.markDatabaseWrite(heap.size.toLong())
             allSaveSuccess = true
         } catch (e: KotlinNullPointerException){
             logger.error (e){ "Failed to create connection to database" }

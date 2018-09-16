@@ -91,6 +91,11 @@
             <version>1.4.197</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>3.1.2</version>
+        </dependency>
     </dependencies>
 
     <build>
