@@ -14,7 +14,7 @@ object InitMeter {
     fun getPerMinuteKafka(): MeterClass {
         val meterperminkafka = InitMeter.kafkaMeter.oneMinuteRate
         val meterpermindatabase = InitMeter.databaseMeter.oneMinuteRate
-        return MeterClass(KafkaMeter = meterperminkafka, DatabaseMeter = meterperminkafka)
+        return MeterClass(KafkaMeter = meterperminkafka, DatabaseMeter = meterpermindatabase)
     }
 
     fun markKafkaRead(l:Long){
